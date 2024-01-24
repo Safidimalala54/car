@@ -1,8 +1,6 @@
 package com.voiture.gasicar.Dao;
 
 
-import Test.Personne;
-
 public class Main {
     public static void main(String[] args) {
         try {

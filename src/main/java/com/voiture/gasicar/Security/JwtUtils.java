@@ -7,7 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Component;
 
-import ITU.Baovola.Gucci.Models.User;
+import com.voiture.gasicar.Model.User;
+
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

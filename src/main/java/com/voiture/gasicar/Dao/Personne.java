@@ -2,8 +2,6 @@ package com.voiture.gasicar.Dao;
 
 import java.sql.Date;
 
-import DAO.DAO;
-
 @TableInfo(user = "postgres",pass = "root",database = "test")
 public class Personne extends DAO{
     @Column(name = "id",isPrimary = true)

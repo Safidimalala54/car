@@ -11,10 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import TableMapping.Column;
-import TableMapping.TableInfo;
-import database.Connector;
-import utilities.MyParser;
 
 public class DAO {
 

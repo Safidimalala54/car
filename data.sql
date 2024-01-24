@@ -1,5 +1,6 @@
+create sequence user_seq start with 1 increment by 1; 
 create table user(
-    id serial primary key,
+    id varchar(60) primary key default,
     nom varchar(150),
     prenom varchar(150),
     email varchar(150),

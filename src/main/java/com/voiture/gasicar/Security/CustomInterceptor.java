@@ -13,6 +13,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.voiture.gasicar.Model.User;
 
 
 @Component
@@ -49,7 +50,7 @@ public class CustomInterceptor implements HandlerInterceptor{
                     if (role.toString().equals(userRole)) {
                         User user=new User();
                         user.setId(this.utils.getUserIdFromToken(token));
-                        user=(User)MyContext.getRequester().select(null, user).get(0);
+                        user=(User) user.select(null).get(0);
                         MyContext.setUser(user);
                         return true;
                     }

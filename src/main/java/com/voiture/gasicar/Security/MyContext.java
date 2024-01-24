@@ -1,5 +1,6 @@
 package com.voiture.gasicar.Security;
 
+import com.voiture.gasicar.Model.User;
 
 public class MyContext {
     private static final ThreadLocal<User> user=new ThreadLocal<>();
