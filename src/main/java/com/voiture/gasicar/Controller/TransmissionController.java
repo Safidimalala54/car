@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.voiture.gasicar.Model.Transmission;
+import com.voiture.gasicar.Security.Authority;
+import com.voiture.gasicar.Security.Role;
 import com.voiture.gasicar.Service.TransmissionService;
 
 import java.util.List;
@@ -21,26 +23,29 @@ public class TransmissionController {
         return transmissionService.getAllTransmissions();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/voir/{id}")
     public ResponseEntity<Transmission> getTransmissionById(@PathVariable Integer id) {
         return transmissionService.getTransmissionById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/insert")
+    @Authority(role = Role.ADMIN)
     public ResponseEntity<Transmission> createTransmission(@RequestBody Transmission transmission) {
         Transmission createdTransmission = transmissionService.createTransmission(transmission);
         return ResponseEntity.ok(createdTransmission);
     }
 
     @PutMapping("/{id}")
+    @Authority(role = Role.ADMIN)
     public ResponseEntity<Transmission> updateTransmission(@PathVariable Integer id, @RequestBody Transmission updatedTransmission) {
         Transmission updated = transmissionService.updateTransmission(id, updatedTransmission);
         return (updated != null) ? ResponseEntity.ok(updated) : ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
+    @Authority(role = Role.ADMIN)
     public ResponseEntity<Void> deleteTransmission(@PathVariable Integer id) {
         transmissionService.deleteTransmission(id);
         return ResponseEntity.noContent().build();

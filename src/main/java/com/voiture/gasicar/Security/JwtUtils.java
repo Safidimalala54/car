@@ -30,7 +30,6 @@ public class JwtUtils {
 
   public String generateJwtToken(User user) {
     System.out.println(user.getRole());
-    System.out.println("CLASS="+user.getRole().getClass());
     return Jwts.builder()
         .setSubject((user.getId()))
         .claim("role", user.getRole())
